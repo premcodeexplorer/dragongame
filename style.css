@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #87CEEB;
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+#scoreCont {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+.controls-info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    z-index: 5;
+}
+.gamecontainer {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.trees {
+    height: 100%;
+    width: 100%;
+    background-image: url('trees.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+.dino {
+    background-image: url('dino.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 380px;
+    height: 225px;
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    z-index: 3;
+}
+
+.obstacle {
+    width: 150px;
+    height: 150px;
+    background-image: url('dragon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    right: -150px;
+    z-index: 3;
+    transition: animation-duration 0.5s ease;
+}
+
+#speedButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 5;
+    transition: background-color 0.3s;
+}
+
+#speedButton:hover {
+    background-color: #45a049;
+}
+
+#speedButton:active {
+    background-color: #3e8e41;
+}
+.animateDino {
+    animation: dino 0.7s linear;
+}
+
+@keyframes dino {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 300px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+.obstacleAni {
+    animation: obstacleAni 3s linear infinite;
+}
+
+@keyframes obstacleAni {
+    0% {
+        right: -100px;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+.gameover {
+    visibility: hidden;
+    text-align: center;
+    font-size: 72px;
+    color: #ff0000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
